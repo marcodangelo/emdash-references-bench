@@ -1,0 +1,31 @@
+{
+  "name": "emdash-references-bench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Counts the database queries an EmDash page makes to list entries with their references.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "emdash": {
+    "label": "References bench",
+    "seed": "seed/seed.json"
+  },
+  "scripts": {
+    "setup": "node scripts/generate-seed.mjs && emdash seed seed/seed.json && astro build",
+    "seed:generate": "node scripts/generate-seed.mjs",
+    "build": "astro build",
+    "start": "node ./dist/server/entry.mjs",
+    "bench": "node scripts/bench.mjs"
+  },
+  "dependencies": {
+    "@astrojs/node": "11.1.6",
+    "@astrojs/react": "6.0.5",
+    "astro": "7.3.5",
+    "emdash": "1.2.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "kysely": "0.29.6"
+  }
+}
